@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Quiz Helper",
+    "version": "1.0",
+    "description": "Automates quiz answering on bcpeducollege.elearningcommons.com",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "cookies",
+      "scripting"
+    ],
+    "host_permissions": [
+      "http://bcpeducollege.elearningcommons.com/*",
+      "https://bcpeducollege.elearningcommons.com/*",
+      "https://generativelanguage.googleapis.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
