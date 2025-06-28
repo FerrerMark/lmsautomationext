@@ -3,7 +3,6 @@ document.getElementById("startQuiz").addEventListener("click", () => {
       const tab = tabs[0];
       console.log("Active tab URL:", tab.url);
   
-      // Send a test message to verify the content script is active
       chrome.tabs.sendMessage(tab.id, { action: "ping" }, (response) => {
         if (chrome.runtime.lastError) {
           console.error("Content script not responding:", chrome.runtime.lastError.message);
@@ -23,7 +22,6 @@ document.getElementById("startQuiz").addEventListener("click", () => {
             }
   
             if (startResponse && startResponse.started) {
-              // Start processing pages
               chrome.tabs.sendMessage(tab.id, { action: "processPage" }, (processResponse) => {
                 if (chrome.runtime.lastError) {
                   console.error("Error sending processPage message:", chrome.runtime.lastError.message);
