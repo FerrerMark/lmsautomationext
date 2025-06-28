@@ -9,7 +9,7 @@ let questionCount = 0;
 console.log("Content script loaded on page:", window.location.href);
 
 if (document.querySelector("#username")) {
-  document.querySelector("#password").value = "#Fe8080"; // Hardcoded password
+  document.querySelector("#password").value = "#Fe8080";
   document.querySelector("#loginbtn").click();
   console.log("Login attempted. Waiting for page to load...");
 }
@@ -159,7 +159,7 @@ async function processQuizLoop() {
     hasNextPage = await processQuizPage();
     if (hasNextPage) {
       console.log("Waiting for next page to load...");
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // Adjust delay as needed
+      await new Promise((resolve) => setTimeout(resolve, 2000));
     }
   }
   console.log("Quiz processing complete or stopped.");
